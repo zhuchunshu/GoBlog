@@ -2,11 +2,16 @@ package main
 
 import (
 	"github.com/gofiber/fiber/v2/middleware/logger"
+	"github.com/zhuchunshu/FecApi-Api/app/server/config"
+	"github.com/zhuchunshu/FecApi-Api/helpers"
 	"github.com/zhuchunshu/GoBlog/routes"
 	"log"
 
 	"github.com/gofiber/fiber/v2"
 )
+
+// 服务配置
+var ServerConfig string = config.GetServerConfig()
 
 func main() {
 	app := fiber.New(fiber.Config{
@@ -21,7 +26,7 @@ func main() {
 	routes.InitRouters(app)
 
 	// 设置端口
-	//Serverport := helpers.JsonDecode(ServerConfig, "port")
-	server := app.Listen(":3000")
+	Serverport := helpers.JsonDecode(ServerConfig, "port")
+	server := app.Listen(":" + Serverport)
 	log.Fatal(server)
 }
