@@ -20,7 +20,7 @@ func main() {
 	app.Use(logger.New())
 
 	// 初始化数据库
-	//initDatabase()
+	initDatabase()
 
 	// 注册路由
 	routes.InitRouters(app)

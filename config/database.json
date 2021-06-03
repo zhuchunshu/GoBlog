@@ -1,0 +1,16 @@
+{
+  "mysql" : {
+    "default" : {
+      "host": "127.0.0.1",
+      "port": 3306,
+      "username": "GoBlog",
+      "database": "GoBlog",
+      "password": "123456"
+    }
+  },
+  "redis" : "127.0.0.1:6379",
+  "connect": {
+    "mysql": "default",
+    "redis": "default"
+  }
+}
