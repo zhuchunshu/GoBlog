@@ -8,6 +8,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/gofiber/fiber/v2"
 	"github.com/zhuchunshu/FecApi-Api/app/server/config"
 	"github.com/zhuchunshu/FecApi-Api/app/server/database"
 	"github.com/zhuchunshu/FecApi-Api/helpers"
@@ -45,4 +46,10 @@ func initDatabase() {
 	fmt.Println("Connection Opened to Database")
 
 	fmt.Println("Database Migrated")
+}
+
+
+// 初始化静态资源目录
+func initPublicPath(app *fiber.App,path string){
+	app.Static("/", "./"+path)
 }

@@ -11,7 +11,7 @@ import (
 )
 
 // 服务配置
-var ServerConfig string = config.GetServerConfig()
+var ServerConfig = config.GetServerConfig()
 
 func main() {
 	app := fiber.New(fiber.Config{
@@ -19,6 +19,8 @@ func main() {
 	})
 	app.Use(logger.New())
 
+	// 初始化静态资源目录
+	initPublicPath(app, helpers.JsonDecode(ServerConfig, "public"))
 	// 初始化数据库
 	initDatabase()
 

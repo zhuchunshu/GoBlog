@@ -9,4 +9,6 @@ require (
 	github.com/tidwall/pretty v1.1.1 // indirect
 	github.com/zhuchunshu/FecApi-Api v0.0.0-20210602064051-3475ce3de2e6 // indirect
 	golang.org/x/sys v0.0.0-20210603125802-9665404d3644 // indirect
+	gorm.io/driver/mysql v1.1.0 // indirect
+	gorm.io/gorm v1.21.10 // indirect
 )

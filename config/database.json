@@ -3,8 +3,8 @@
     "default" : {
       "host": "127.0.0.1",
       "port": 3306,
-      "username": "GoBlog",
-      "database": "GoBlog",
+      "username": "goblog",
+      "database": "goblog",
       "password": "123456"
     }
   },
