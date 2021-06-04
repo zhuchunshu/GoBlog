@@ -7,9 +7,9 @@ import (
 
 type Users struct {
 	gorm.Model
-	UserName string
-	PassWord string
+	UserName string  `gorm:"column:username"`
+	PassWord string `gorm:"column:password"`
 	Email string
-	EmailVerTime sql.NullTime
+	EmailVerTime sql.NullTime `gorm:"column:email_ver_time"`
 	Shenfen string
 }

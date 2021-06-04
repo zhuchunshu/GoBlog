@@ -7,6 +7,7 @@ import (
 	"github.com/zhuchunshu/GoBlog/app/Models/comment"
 	"github.com/zhuchunshu/GoBlog/app/Models/posts"
 	"github.com/zhuchunshu/GoBlog/app/Models/users"
+	"github.com/zhuchunshu/GoBlog/app/Server"
 	"github.com/zhuchunshu/GoBlog/app/Server/database"
 	"github.com/zhuchunshu/GoBlog/routes"
 	"log"
@@ -27,10 +28,11 @@ func main() {
 	initPublicPath(app, helpers.JsonDecode(ServerConfig, "public"))
 	// 初始化数据库
 	initDatabase()
-	// 迁移数据库
-	db:=database.DBConn
-	_ = db.Set("gorm:table_options", "ENGINE=InnoDB").AutoMigrate(&users.Users{}, &posts.Posts{}, &comment.Comment{})
+	// 启动服务
+	Server.App()
 
+	// 数据库迁移
+	_ = database.DBConn.Set("gorm:table_options", "ENGINE=InnoDB").AutoMigrate(&users.Users{}, &posts.Posts{}, &comment.Comment{})
 	// 注册路由
 	routes.InitRouters(app)
 
