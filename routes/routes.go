@@ -5,6 +5,7 @@ import (
 )
 
 func InitRouters(app *fiber.App) {
+	Web(app)
 	//RegisterWebRoutes(app)
 	//api.InitRouters(app)
 }
