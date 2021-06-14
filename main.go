@@ -35,7 +35,8 @@ func main() {
 	_ = database.DBConn.Set("gorm:table_options", "ENGINE=InnoDB").AutoMigrate(&users.Users{}, &posts.Posts{}, &comment.Comment{})
 	// 注册路由
 	routes.InitRouters(app)
-
+	// 注册用户
+	database.RegUser()
 	// 设置端口
 	Serverport := helpers.JsonDecode(ServerConfig, "port")
 	server := app.Listen(":" + Serverport)
